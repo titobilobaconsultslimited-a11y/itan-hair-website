@@ -86,11 +86,11 @@ body {
   cursor: none;
 }
 .nav-logo img {
-  height: 48px; width: 48px;
+  height: 72px; width: auto;
   object-fit: contain;
   transition: var(--transition);
 }
-.nav.scrolled .nav-logo img { height: 38px; width: 38px; }
+.nav.scrolled .nav-logo img { height: 56px; }
 .nav-logo-text {
   font-family: var(--font-display);
   font-size: 22px;
