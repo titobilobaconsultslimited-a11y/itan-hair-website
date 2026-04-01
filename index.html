@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Itan Academy — Lagos's premier hair salon and professional training academy. Expert braiding, colour, wig installation, loc services and bridal styling. Enrol in our certified courses today.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Itan Academy — Hair Salon & Academy">
+<meta property="og:description" content="Lagos's premier hair salon and professional training academy. Expert services and certified courses.">
+<meta property="og:type" content="website">
+<title>Itan Academy — Hair Salon & Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   TITAN ACADEMY — CSS
+   ══════════════════════════════════════════ */
+:root {
+  --pink: #F472B6;
+  --pink-deep: #EC4899;
+  --pink-light: #FCE7F3;
+  --pink-pale: #FDF2F8;
+  --black: #0A0A0A;
+  --black2: #1A1A1A;
+  --gray: #6B7280;
+  --gray-light: #F9F9F9;
+  --white: #FFFFFF;
+  --border: #F3E8EE;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-accent: 'Playfair Display', serif;
+  --shadow-pink: 0 8px 40px rgba(244, 114, 182, 0.2);
+  --shadow-soft: 0 4px 24px rgba(0,0,0,0.06);
+  --shadow-hard: 0 20px 60px rgba(0,0,0,0.12);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  width: 10px; height: 10px;
+  background: var(--pink);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--pink);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s, height 0.3s, opacity 0.3s;
+  opacity: 0.6;
+}
+.cursor-ring.hovered { width: 56px; height: 56px; opacity: 1; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--white); }
+::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 2px; }
+
+/* ── NAVIGATION ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 48px;
+  height: 80px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: var(--transition);
+}
+.nav.scrolled {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  box-shadow: var(--shadow-soft);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+  cursor: none;
+}
+.nav-logo img {
+  height: 48px; width: 48px;
+  object-fit: contain;
+  transition: var(--transition);
+}
+.nav.scrolled .nav-logo img { height: 38px; width: 38px; }
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--black);
+  line-height: 1;
+}
+.nav-logo-sub {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--pink);
+  display: block;
+  margin-top: 2px;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: var(--transition);
+  cursor: none;
+  border: none; background: none;
+}
+.nav-link:hover, .nav-link.active { color: var(--pink); background: var(--pink-pale); }
+.nav-cta {
+  background: var(--black);
+  color: var(--white) !important;
+  padding: 10px 22px;
+}
+.nav-cta:hover { background: var(--pink-deep) !important; color: var(--white) !important; }
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: none; border: none; background: none; padding: 8px;
+}
+.nav-hamburger span { width: 24px; height: 2px; background: var(--black); border-radius: 2px; display: block; transition: var(--transition); }
+.nav-mobile { display: none; }
+
+/* ── PAGE SYSTEM ── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes slideRight { from { opacity:0; transform:translateX(-60px); } to { opacity:1; transform:translateX(0); } }
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+@keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.anim-fade-up { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+.anim-fade-up-2 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+.anim-fade-up-3 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both; }
+.anim-fade-up-4 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.45s both; }
+
+/* ══════════════════════════════════════════
+   HOME PAGE
+   ══════════════════════════════════════════ */
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 48px;
+  background: var(--white);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 80% 50%, var(--pink-pale) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-blob {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: var(--pink-light);
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  top: -100px; right: -100px;
+  animation: float 8s ease-in-out infinite;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.hero-blob2 {
+  position: absolute;
+  width: 300px; height: 300px;
+  background: var(--pink-light);
+  border-radius: 40% 60% 30% 70% / 60% 40% 50% 50%;
+  bottom: 0; right: 200px;
+  animation: float 10s ease-in-out 2s infinite;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 660px;
+}
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--pink);
+  flex-shrink: 0;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--black);
+  margin-bottom: 28px;
+  letter-spacing: -1px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--pink-deep);
+  font-weight: 400;
+}
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 100px;
+  border: none;
+  cursor: none;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.btn-primary { background: var(--black); color: var(--white); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+.btn-primary:hover { background: var(--pink-deep); transform: translateY(-2px); box-shadow: var(--shadow-pink); }
+.btn-outline { background: transparent; color: var(--black); border: 1.5px solid var(--black); }
+.btn-outline:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
+.btn-pink { background: var(--pink); color: var(--white); box-shadow: var(--shadow-pink); }
+.btn-pink:hover { background: var(--pink-deep); transform: translateY(-2px); }
+.btn-white { background: var(--white); color: var(--black); }
+.btn-white:hover { background: var(--pink-light); }
+
+.hero-image-wrap {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 45%;
+  overflow: hidden;
+}
+.hero-image-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--white) 0%, transparent 30%);
+  z-index: 1;
+}
+.hero-img-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-pale) 50%, white 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 120px;
+}
+.hero-stats {
+  display: flex; gap: 40px;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.stat-item { }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--black);
+  line-height: 1;
+}
+.stat-num span { color: var(--pink); }
+.stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  background: var(--black);
+  padding: 18px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-item {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--white);
+  padding: 0 32px;
+  letter-spacing: 1px;
+}
+.marquee-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--pink);
+  border-radius: 50%;
+  margin: 0 8px;
+  vertical-align: middle;
+}
+
+/* SECTION COMMON */
+section { padding: 100px 48px; }
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--pink); }
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--pink-deep); }
+.section-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+/* SERVICES SECTION */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 48px;
+}
+.service-card {
+  background: var(--white);
+  padding: 48px 40px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 3px; width: 0;
+  background: var(--pink);
+  transition: var(--transition);
+}
+.service-card:hover { background: var(--pink-pale); }
+.service-card:hover::before { width: 100%; }
+.service-icon {
+  font-size: 36px; margin-bottom: 20px;
+  display: block;
+  transition: var(--transition);
+}
+.service-card:hover .service-icon { transform: scale(1.1) rotate(-5deg); }
+.service-name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+.service-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.service-price {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--pink-deep);
+}
+.service-price span { font-size: 13px; font-weight: 400; color: var(--gray); }
+
+/* ABOUT STRIP */
+.about-strip {
+  background: var(--black);
+  padding: 100px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-strip-text { }
+.about-strip-eyebrow {
+  font-size: 10px; font-weight: 600; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--pink);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+}
+.about-strip-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--pink); }
+.about-strip-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300; line-height: 1.1;
+  color: var(--white); margin-bottom: 20px;
+}
+.about-strip-title em { font-style: italic; color: var(--pink); }
+.about-strip-body {
+  font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.6);
+  line-height: 1.9; margin-bottom: 32px;
+}
+.about-strip-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #1A1A1A, #2A2A2A);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px;
+  position: relative;
+}
+.about-strip-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 1px solid rgba(244,114,182,0.3);
+}
+
+/* TESTIMONIALS */
+.testimonials { background: var(--pink-pale); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.testimonial-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+  border: 1px solid var(--border);
+}
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-pink); }
+.testimonial-stars { color: var(--pink); font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+.testimonial-text {
+  font-family: var(--font-display);
+  font-size: 18px; font-style: italic; font-weight: 300;
+  color: var(--black); line-height: 1.7; margin-bottom: 24px;
+}
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--pink-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.author-name { font-size: 13px; font-weight: 600; color: var(--black); }
+.author-title { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+/* CTA SECTION */
+.cta-section {
+  background: var(--pink-deep);
+  padding: 100px 48px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 300; font-style: italic;
+  color: var(--white); margin-bottom: 20px;
+  position: relative;
+}
+.cta-sub {
+  font-size: 14px; font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 40px; position: relative;
+}
+.cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; }
+
+/* ══════════════════════════════════════════
+   SHOP PAGE
+   ══════════════════════════════════════════ */
+.shop-hero {
+  padding: 140px 48px 60px;
+  background: var(--pink-pale);
+  text-align: center;
+}
+.shop-filters {
+  display: flex; gap: 8px; justify-content: center;
+  margin-top: 32px; flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 10px 22px; border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: var(--white); color: var(--gray);
+  cursor: none; transition: var(--transition);
+}
+.filter-btn.active, .filter-btn:hover {
+  border-color: var(--pink); color: var(--pink);
+  background: var(--pink-pale);
+}
+.shop-grid {
+  padding: 60px 48px 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.product-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  cursor: none;
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hard); }
+.product-image {
+  aspect-ratio: 3/4;
+  background: var(--pink-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.product-badge {
+  position: absolute; top: 16px; left: 16px;
+  background: var(--pink);
+  color: var(--white);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+}
+.product-badge.black { background: var(--black); }
+.product-info { padding: 20px; }
+.product-cat {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--pink); margin-bottom: 6px;
+}
+.product-name {
+  font-family: var(--font-display);
+  font-size: 18px; font-weight: 600;
+  color: var(--black); margin-bottom: 8px;
+  line-height: 1.2;
+}
+.product-price {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.price-main {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 600;
+  color: var(--black);
+}
+.price-old {
+  font-size: 14px; color: var(--gray);
+  text-decoration: line-through;
+}
+.product-rating {
+  font-size: 12px; color: var(--pink);
+  margin-bottom: 14px;
+}
+.btn-add-cart {
+  width: 100%;
+  background: var(--black); color: var(--white);
+  border: none; padding: 12px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  cursor: none; transition: var(--transition);
+}
+.btn-add-cart:hover { background: var(--pink-deep); }
+
+/* ══════════════════════════════════════════
+   ACADEMY PAGE
+   ══════════════════════════════════════════ */
+.academy-hero {
+  min-height: 70vh;
+  background: var(--black);
+  padding: 140px 48px 80px;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.academy-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 70% 50%, rgba(236,72,153,0.15) 0%, transparent 70%);
+}
+.academy-hero-content { position: relative; max-width: 660px; }
+.academy-hero-eyebrow {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--pink); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.academy-hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--pink); }
+.academy-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 300; line-height: 1;
+  color: var(--white); margin-bottom: 24px;
+}
+.academy-title em { font-style: italic; color: var(--pink); }
+.academy-sub {
+  font-size: 15px; font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8; margin-bottom: 40px; max-width: 500px;
+}
+
+.courses-section { padding: 100px 48px; }
+.courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+.course-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  background: var(--white);
+}
+.course-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hard); }
+.course-image {
+  aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 56px;
+  position: relative;
+  overflow: hidden;
+}
+.course-image.pink { background: linear-gradient(135deg, var(--pink-light), var(--pink-pale)); }
+.course-image.dark { background: linear-gradient(135deg, #1a1a1a, #2a2a2a); }
+.course-image.blush { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+.course-level {
+  position: absolute; top: 16px; right: 16px;
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+}
+.course-level.beginner { background: #dcfce7; color: #15803d; }
+.course-level.intermediate { background: #fef9c3; color: #a16207; }
+.course-level.advanced { background: var(--pink-light); color: var(--pink-deep); }
+.course-info { padding: 28px; }
+.course-cat {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--pink); margin-bottom: 8px;
+}
+.course-name {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 600;
+  color: var(--black); margin-bottom: 10px; line-height: 1.2;
+}
+.course-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--gray); line-height: 1.7; margin-bottom: 20px;
+}
+.course-meta {
+  display: flex; gap: 20px;
+  padding: 16px 0; border-top: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.meta-item {
+  font-size: 11px; color: var(--gray);
+  display: flex; align-items: center; gap: 6px;
+}
+.meta-item strong { color: var(--black); font-weight: 600; }
+.course-footer {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.course-price {
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 600; color: var(--black);
+}
+.course-price span { font-size: 13px; font-weight: 300; color: var(--gray); }
+
+/* Why Itan */
+.why-titan { background: var(--pink-pale); padding: 100px 48px; }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--pink-light); border-radius: var(--radius); overflow: hidden; margin-top: 48px; }
+.why-card {
+  background: var(--white);
+  padding: 40px 32px;
+  text-align: center;
+  transition: var(--transition);
+}
+.why-card:hover { background: var(--pink-pale); }
+.why-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+.why-title {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 600;
+  color: var(--black); margin-bottom: 10px;
+}
+.why-desc { font-size: 13px; font-weight: 300; color: var(--gray); line-height: 1.7; }
+
+/* ══════════════════════════════════════════
+   ABOUT PAGE
+   ══════════════════════════════════════════ */
+.about-hero {
+  padding: 140px 48px 80px;
+  background: var(--black);
+  position: relative; overflow: hidden;
+}
+.about-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 40% 60% at 30% 80%, rgba(236,72,153,0.12) 0%, transparent 70%);
+}
+.about-hero-inner {
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.about-hero-eyebrow {
+  font-size: 10px; font-weight: 600; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--pink); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.about-hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--pink); }
+.about-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 300; line-height: 1.1;
+  color: var(--white); margin-bottom: 24px;
+}
+.about-hero-title em { font-style: italic; color: var(--pink); }
+.about-hero-body {
+  font-size: 14px; font-weight: 300;
+  color: rgba(255,255,255,0.6); line-height: 1.9;
+}
+.about-logo-display {
+  display: flex; align-items: center; justify-content: center;
+}
+.about-logo-img {
+  width: 280px; height: 280px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 60px rgba(244,114,182,0.3));
+  animation: float 6s ease-in-out infinite;
+}
+
+.values-section { padding: 100px 48px; }
+.values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+.value-card {
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  display: flex; gap: 24px;
+}
+.value-card:hover { border-color: var(--pink); box-shadow: var(--shadow-pink); transform: translateY(-3px); }
+.value-num {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 600;
+  color: var(--pink-light); line-height: 1;
+  flex-shrink: 0;
+}
+.value-title {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 600;
+  color: var(--black); margin-bottom: 10px;
+}
+.value-desc { font-size: 13px; font-weight: 300; color: var(--gray); line-height: 1.8; }
+
+.team-section { background: var(--pink-pale); padding: 100px 48px; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+.team-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hard); }
+.team-photo {
+  aspect-ratio: 3/4;
+  background: var(--pink-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 72px;
+}
+.team-info { padding: 24px; }
+.team-name {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 600;
+  color: var(--black); margin-bottom: 4px;
+}
+.team-role { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 12px; }
+.team-bio { font-size: 13px; font-weight: 300; color: var(--gray); line-height: 1.7; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black);
+  padding: 80px 48px 40px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 40px;
+}
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 300;
+  color: var(--white); margin-bottom: 4px;
+  letter-spacing: 2px;
+}
+.footer-brand-sub {
+  font-size: 10px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--pink); margin-bottom: 20px;
+}
+.footer-body {
+  font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.4); line-height: 1.8; margin-bottom: 28px;
+}
+.footer-socials { display: flex; gap: 12px; }
+.social-btn {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: none; transition: var(--transition);
+  text-decoration: none;
+}
+.social-btn:hover { background: var(--pink); }
+.footer-col-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--white); margin-bottom: 20px;
+}
+.footer-link {
+  display: block; font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.4); text-decoration: none;
+  margin-bottom: 12px; transition: var(--transition); cursor: none;
+}
+.footer-link:hover { color: var(--pink); padding-left: 4px; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: rgba(255,255,255,0.25);
+}
+.footer-bottom a { color: var(--pink); text-decoration: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .shop-grid { grid-template-columns: repeat(3, 1fr); }
+  .courses-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-mobile {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--white); z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile .nav-link { font-size: 14px; padding: 16px 32px; }
+  section { padding: 60px 24px; }
+  .hero { padding: 100px 24px 60px; min-height: auto; }
+  .hero-image-wrap { display: none; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .about-strip { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+  .about-strip-image { display: none; }
+  .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+  .shop-grid { grid-template-columns: repeat(2, 1fr); padding: 40px 24px 60px; }
+  .courses-grid, .team-grid, .values-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .about-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .academy-hero, .shop-hero, .about-hero { padding: 120px 24px 60px; }
+  .cta-section { padding: 60px 24px; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="main-nav">
+  <a class="nav-logo" href="javascript:void(0)" onclick="showPage('home')">
+    <img src="1774876523458_LOGO.jpeg" alt="Itan Academy" onerror="this.style.display='none'">
+    <div>
+      <span class="nav-logo-text">Itan</span>
+      <span class="nav-logo-sub">Hair Academy</span>
+    </div>
+  </a>
+
+  <button class="nav-hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-links">
+    <a class="nav-link active" href="javascript:void(0)" data-page="home" onclick="showPage('home')">Home</a>
+    <a class="nav-link" href="javascript:void(0)" data-page="about" onclick="showPage('about')">About</a>
+    <a class="nav-link" href="javascript:void(0)" data-page="academy" onclick="showPage('academy')">Academy</a>
+    <a class="nav-link" href="javascript:void(0)" data-page="shop" onclick="showPage('shop')">Shop</a>
+    <a class="nav-link nav-cta btn" href="javascript:void(0)" data-page="academy" onclick="showPage('academy')">Enrol Now</a>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-mobile" id="mobile-nav">
+  <button style="position:absolute;top:24px;right:24px;font-size:28px;border:none;background:none;cursor:pointer" aria-label="Close navigation menu" onclick="toggleMobileNav()">✕</button>
+  <a class="nav-link" href="javascript:void(0)" data-page="home" onclick="showPage('home');toggleMobileNav()">Home</a>
+  <a class="nav-link" href="javascript:void(0)" data-page="about" onclick="showPage('about');toggleMobileNav()">About</a>
+  <a class="nav-link" href="javascript:void(0)" data-page="academy" onclick="showPage('academy');toggleMobileNav()">Academy</a>
+  <a class="nav-link" href="javascript:void(0)" data-page="shop" onclick="showPage('shop');toggleMobileNav()">Shop</a>
+  <a class="nav-link nav-cta btn" href="javascript:void(0)" data-page="academy" onclick="showPage('academy');toggleMobileNav()">Enrol Now</a>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- HOME PAGE                                  -->
+<!-- ══════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-blob"></div>
+    <div class="hero-blob2"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow anim-fade-up">Lagos • Nigeria</div>
+      <h1 class="hero-title anim-fade-up-2">Where Hair<br>Becomes <em>Art</em></h1>
+      <p class="hero-sub anim-fade-up-3">Premium hair salon services and professional academy training. We transform your hair and your career — one strand at a time.</p>
+      <div class="hero-actions anim-fade-up-4">
+        <a class="btn btn-primary" onclick="showPage('shop')">Book a Service</a>
+        <a class="btn btn-outline" onclick="showPage('academy')">Explore Academy</a>
+      </div>
+      <div class="hero-stats anim-fade-up-4">
+        <div class="stat-item">
+          <div class="stat-num">500<span>+</span></div>
+          <div class="stat-label">Clients Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">200<span>+</span></div>
+          <div class="stat-label">Graduates</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8<span>+</span></div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-img-placeholder">💇‍♀️</div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">Hair Styling</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Braiding & Weaving</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Academy Training</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Colour & Treatment</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Locs & Natural Hair</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Wig Making</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Hair Extensions</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Hair Styling</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Braiding & Weaving</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Academy Training</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Colour & Treatment</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Locs & Natural Hair</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Wig Making</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Hair Extensions</span><span class="marquee-dot"></span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section>
+    <div class="section-eyebrow">Our Services</div>
+    <h2 class="section-title">Crafted for<br><em>Every Hair Story</em></h2>
+    <p class="section-sub">From everyday styling to transformative treatments — our expert team delivers excellence tailored to you.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">✂️</span>
+        <div class="service-name">Braiding & Weaving</div>
+        <div class="service-desc">Expert braiding from classic cornrows to intricate knotless styles. We celebrate the beauty of African hair heritage.</div>
+        <div class="service-price">from ₦8,000 <span>/ session</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💆‍♀️</span>
+        <div class="service-name">Hair Treatment</div>
+        <div class="service-desc">Deep conditioning, protein treatments, and scalp therapy to restore strength, shine and health to your hair.</div>
+        <div class="service-price">from ₦5,000 <span>/ session</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌈</span>
+        <div class="service-name">Color & Highlights</div>
+        <div class="service-desc">From bold transformations to subtle sun-kissed highlights — our colorists bring your vision to life.</div>
+        <div class="service-price">from ₦15,000 <span>/ session</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">👑</span>
+        <div class="service-name">Wig Installation</div>
+        <div class="service-desc">Professional wig installation, customisation and maintenance for a natural, flawless finish every time.</div>
+        <div class="service-price">from ₦10,000 <span>/ session</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌿</span>
+        <div class="service-name">Loc Services</div>
+        <div class="service-desc">Starter locs, retwisting, loc maintenance and styling. Honouring your natural hair journey with expertise.</div>
+        <div class="service-price">from ₦7,000 <span>/ session</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💅</span>
+        <div class="service-name">Bridal Styling</div>
+        <div class="service-desc">Look absolutely stunning on your special day. Bespoke bridal hair packages tailored to your vision.</div>
+        <div class="service-price">from ₦25,000 <span>/ package</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <div class="about-strip">
+    <div class="about-strip-text">
+      <div class="about-strip-eyebrow">Our Story</div>
+      <h2 class="about-strip-title">More Than<br>a Salon — a <em>Movement</em></h2>
+      <p class="about-strip-body">Itan Academy was born from a passion for hair artistry and a vision to empower the next generation of stylists across Africa. We combine world-class training with premium salon services under one roof.</p>
+      <a class="btn btn-pink" onclick="showPage('about')">Discover Our Story</a>
+    </div>
+    <div class="about-strip-image">💇‍♀️</div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-eyebrow">Testimonials</div>
+    <h2 class="section-title">What Our <em>Clients Say</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Itan Academy completely transformed my hair. The team is professional, talented and so warm. I'll never go anywhere else!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩🏾</div>
+          <div><div class="author-name">Adaeze Okonkwo</div><div class="author-title">Loyal Client, 3 years</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I enrolled in the braiding course and landed my first client 2 weeks after graduating. The training is genuinely world class."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩🏽</div>
+          <div><div class="author-name">Fatima Bello</div><div class="author-title">Academy Graduate</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"My bridal hair was absolutely perfect. I cried happy tears when I saw myself. Every bride should go to Itan!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👰🏾</div>
+          <div><div class="author-name">Chidinma Eze</div><div class="author-title">Bridal Client</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2 class="cta-title">Ready to Transform<br>Your Hair?</h2>
+    <p class="cta-sub">Book a consultation today or explore our academy programmes.</p>
+    <div class="cta-actions">
+      <a class="btn btn-white" onclick="showPage('shop')">Book a Service</a>
+      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" onclick="showPage('academy')">View Courses</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SHOP PAGE                                  -->
+<!-- ══════════════════════════════════════════ -->
+<div id="page-shop" class="page">
+
+  <div class="shop-hero">
+    <div class="section-eyebrow" style="justify-content:center">Hair Products & Services</div>
+    <h1 class="section-title" style="text-align:center">The <em>Itan Shop</em></h1>
+    <p class="section-sub" style="text-align:center;margin:0 auto 0">Premium hair care products handpicked by our stylists — and book your next appointment.</p>
+    <div class="shop-filters">
+      <button class="filter-btn active" onclick="filterProducts(this,'all')">All Products</button>
+      <button class="filter-btn" onclick="filterProducts(this,'treatment')">Treatments</button>
+      <button class="filter-btn" onclick="filterProducts(this,'styling')">Styling</button>
+      <button class="filter-btn" onclick="filterProducts(this,'tools')">Tools</button>
+      <button class="filter-btn" onclick="filterProducts(this,'natural')">Natural Hair</button>
+    </div>
+  </div>
+
+  <div class="shop-grid" id="shop-grid">
+    <div class="product-card" data-cat="treatment">
+      <div class="product-image"><span class="product-badge">Best Seller</span>🧴</div>
+      <div class="product-info">
+        <div class="product-cat">Treatment</div>
+        <div class="product-name">Deep Moisture Masque</div>
+        <div class="product-rating">★★★★★ (48)</div>
+        <div class="product-price"><span class="price-main">₦4,500</span><span class="price-old">₦6,000</span></div>
+        <button class="btn-add-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card" data-cat="styling">
+      <div class="product-image"><span class="product-badge black">New</span>💆</div>
+      <div class="product-info">
+        <div class="product-cat">Styling</div>
+        <div class="product-name">Curl Defining Cream</div>
+        <div class="product-rating">★★★★☆ (32)</div>
+        <div class="product-price"><span class="price-main">₦3,200</span></div>
+        <button class="btn-add-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card" data-cat="tools">
+      <div class="product-image">💎</div>
+      <div class="product-info">
+        <div class="product-cat">Tools</div>
+        <div class="product-name">Pro Itanium Flat Iron</div>
+        <div class="product-rating">★★★★★ (67)</div>
+        <div class="product-price"><span class="price-main">₦28,000</span><span class="price-old">₦35,000</span></div>
+        <button class="btn-add-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card" data-cat="natural">
+      <div class="product-image"><span class="product-badge">Popular</span>🌿</div>
+      <div class="product-info">
+        <div class="product-cat">Natural Hair</div>
+        <div class="product-name">Loc Refresh Spray</div>
+        <div class="product-rating">★★★★★ (91)</div>
+        <div class="product-price"><span class="price-main">₦2,800</span></div>
+        <button class="btn-add-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card" data-cat="treatment">
+      <div class="product-image">✨</div>
+      <div class="product-info">
+        <div class="product-cat">Treatment</div>
+        <div class="product-name">Protein Bond Repair</div>
+        <div class="product-rating">★★★★☆ (24)</div>
+        <div class="product-price"><span class="price-main">₦5,500</span></div>
+        <button class="btn-add-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card" data-cat="styling">
+      <div class="product-image"><span class="product-badge">Sale</span>💅</div>
+      <div class="product-info">
+        <div class="product-cat">Styling</div>
+        <div class="product-name">Edge Control Gel</div>
+        <div class="product-rating">★★★★★ (115)</div>
+        <div class="product-price"><span class="price-main">₦1,800</span><span class="price-old">₦2,500</span></div>
+        <button class="btn-add-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card" data-cat="tools">
+      <div class="product-image">🪮</div>
+      <div class="product-info">
+        <div class="product-cat">Tools</div>
+        <div class="product-name">Wide-Tooth Detangle Set</div>
+        <div class="product-rating">★★★★☆ (43)</div>
+        <div class="product-price"><span class="price-main">₦3,500</span></div>
+        <button class="btn-add-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card" data-cat="natural">
+      <div class="product-image"><span class="product-badge black">New</span>🌺</div>
+      <div class="product-info">
+        <div class="product-cat">Natural Hair</div>
+        <div class="product-name">Shea Butter Leave-In</div>
+        <div class="product-rating">★★★★★ (78)</div>
+        <div class="product-price"><span class="price-main">₦4,000</span></div>
+        <button class="btn-add-cart">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2 class="cta-title">Can't Find What<br>You're Looking For?</h2>
+    <p class="cta-sub">Contact us directly and our team will source exactly what you need.</p>
+    <div class="cta-actions">
+      <a class="btn btn-white" href="https://wa.me/2340000000000" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ACADEMY PAGE                               -->
+<!-- ══════════════════════════════════════════ -->
+<div id="page-academy" class="page">
+
+  <div class="academy-hero">
+    <div class="academy-hero-content">
+      <div class="academy-hero-eyebrow">Itan Academy</div>
+      <h1 class="academy-title">Train Like<br>a <em>Professional</em></h1>
+      <p class="academy-sub">Join Africa's premier hair academy. Our hands-on courses are designed to turn your passion into a thriving career.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn btn-pink">Apply Now</a>
+        <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:white">Download Brochure</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COURSES -->
+  <section class="courses-section">
+    <div class="section-eyebrow">Our Programmes</div>
+    <h2 class="section-title">Choose Your<br><em>Path to Mastery</em></h2>
+    <p class="section-sub">Every course is taught by industry professionals with hands-on practice from day one.</p>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-image pink"><span class="course-level beginner">Beginner</span>🪢</div>
+        <div class="course-info">
+          <div class="course-cat">Foundation</div>
+          <div class="course-name">Braiding Fundamentals</div>
+          <div class="course-desc">Master the art of braiding from basics to advanced techniques. Perfect for beginners starting their hair journey.</div>
+          <div class="course-meta">
+            <div class="meta-item">⏱ <strong>4 weeks</strong></div>
+            <div class="meta-item">👥 <strong>8 students max</strong></div>
+            <div class="meta-item">📜 <strong>Certificate</strong></div>
+          </div>
+          <div class="course-footer">
+            <div class="course-price">₦45,000 <span>/ course</span></div>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image dark"><span class="course-level intermediate">Intermediate</span>💇‍♀️</div>
+        <div class="course-info">
+          <div class="course-cat">Styling</div>
+          <div class="course-name">Wig Making Masterclass</div>
+          <div class="course-desc">Learn to construct, customise and install wigs professionally. A highly sought-after skill in today's market.</div>
+          <div class="course-meta">
+            <div class="meta-item">⏱ <strong>6 weeks</strong></div>
+            <div class="meta-item">👥 <strong>6 students max</strong></div>
+            <div class="meta-item">📜 <strong>Certificate</strong></div>
+          </div>
+          <div class="course-footer">
+            <div class="course-price">₦75,000 <span>/ course</span></div>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image blush"><span class="course-level advanced">Advanced</span>🌈</div>
+        <div class="course-info">
+          <div class="course-cat">Colour</div>
+          <div class="course-name">Hair Colour & Chemistry</div>
+          <div class="course-desc">A deep dive into hair science, colour theory, and advanced colouring techniques. For the ambitious professional.</div>
+          <div class="course-meta">
+            <div class="meta-item">⏱ <strong>8 weeks</strong></div>
+            <div class="meta-item">👥 <strong>5 students max</strong></div>
+            <div class="meta-item">📜 <strong>Certificate</strong></div>
+          </div>
+          <div class="course-footer">
+            <div class="course-price">₦90,000 <span>/ course</span></div>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image pink"><span class="course-level beginner">Beginner</span>🌿</div>
+        <div class="course-info">
+          <div class="course-cat">Natural Hair</div>
+          <div class="course-name">Loc Artistry Course</div>
+          <div class="course-desc">Everything about locs — from starting to maintaining to creating stunning loc styles. Celebrate natural beauty.</div>
+          <div class="course-meta">
+            <div class="meta-item">⏱ <strong>3 weeks</strong></div>
+            <div class="meta-item">👥 <strong>8 students max</strong></div>
+            <div class="meta-item">📜 <strong>Certificate</strong></div>
+          </div>
+          <div class="course-footer">
+            <div class="course-price">₦35,000 <span>/ course</span></div>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image dark"><span class="course-level intermediate">Intermediate</span>💎</div>
+        <div class="course-info">
+          <div class="course-cat">Business</div>
+          <div class="course-name">Salon Business Bootcamp</div>
+          <div class="course-desc">Learn to build, brand and run a profitable salon business. Marketing, pricing, client management and more.</div>
+          <div class="course-meta">
+            <div class="meta-item">⏱ <strong>2 weeks</strong></div>
+            <div class="meta-item">👥 <strong>12 students max</strong></div>
+            <div class="meta-item">📜 <strong>Certificate</strong></div>
+          </div>
+          <div class="course-footer">
+            <div class="course-price">₦30,000 <span>/ course</span></div>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image blush"><span class="course-level advanced">Advanced</span>👑</div>
+        <div class="course-info">
+          <div class="course-cat">Pro Track</div>
+          <div class="course-name">Complete Pro Stylist Programme</div>
+          <div class="course-desc">Our flagship intensive: braiding, styling, colour, wigs and business in one comprehensive career-launching course.</div>
+          <div class="course-meta">
+            <div class="meta-item">⏱ <strong>16 weeks</strong></div>
+            <div class="meta-item">👥 <strong>4 students max</strong></div>
+            <div class="meta-item">📜 <strong>Diploma</strong></div>
+          </div>
+          <div class="course-footer">
+            <div class="course-price">₦200,000 <span>/ course</span></div>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TITAN -->
+  <section class="why-titan">
+    <div class="section-eyebrow">Why Choose Us</div>
+    <h2 class="section-title">The <em>Itan Difference</em></h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">🏆</span>
+        <div class="why-title">Industry-Led Training</div>
+        <div class="why-desc">Every instructor is a working professional with real-world salon experience.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">👐</span>
+        <div class="why-title">Hands-On Practice</div>
+        <div class="why-desc">80% of class time is practical. You leave with skills, not just theory.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📜</span>
+        <div class="why-title">Certified Credentials</div>
+        <div class="why-desc">Our certificates are recognised by salon owners across Nigeria and beyond.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🚀</span>
+        <div class="why-title">Career Support</div>
+        <div class="why-desc">Job placement assistance, business mentorship and alumni network access.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2 class="cta-title">Your Career<br>Starts <em>Here</em></h2>
+    <p class="cta-sub">Limited spaces available. Apply today to secure your spot.</p>
+    <div class="cta-actions">
+      <a class="btn btn-white">Apply Now</a>
+      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" href="https://wa.me/2340000000000" target="_blank" rel="noopener noreferrer">Chat with Us</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ABOUT PAGE                                 -->
+<!-- ══════════════════════════════════════════ -->
+<div id="page-about" class="page">
+
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <div>
+        <div class="about-hero-eyebrow">Our Story</div>
+        <h1 class="about-hero-title">Born From<br>a <em>Passion</em><br>for Hair</h1>
+        <p class="about-hero-body">Itan Academy was founded with a singular mission — to elevate the standard of hair artistry in Nigeria and across Africa. What started as a small salon has grown into a movement, training hundreds of stylists and serving thousands of clients who trust us with their most prized possession.</p>
+      </div>
+      <div class="about-logo-display">
+        <img src="1774876523458_LOGO.jpeg" class="about-logo-img" alt="Itan Academy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div style="display:none;font-size:100px;text-align:center">✂️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="section-eyebrow">What We Stand For</div>
+    <h2 class="section-title">Our Core <em>Values</em></h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <div>
+          <div class="value-title">Excellence Always</div>
+          <div class="value-desc">We hold every strand to the highest standard. Whether it's a simple trim or a complex colour, excellence is non-negotiable at Itan.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <div>
+          <div class="value-title">Celebrating Heritage</div>
+          <div class="value-desc">African hair is magnificent. We honour every texture, pattern and style — from natural locs to bold weaves — with equal expertise and pride.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <div>
+          <div class="value-title">Empowering Careers</div>
+          <div class="value-desc">We believe every person deserves the tools to build a thriving career. Our academy programmes are designed to transform talent into livelihoods.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">04</div>
+        <div>
+          <div class="value-title">Community First</div>
+          <div class="value-desc">Itan is more than a business — it's a community. We invest in our clients, our students and the neighbourhoods we serve.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+    <div class="section-eyebrow">Meet the Team</div>
+    <h2 class="section-title">The Hands Behind<br>the <em>Magic</em></h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">👩🏾‍🦱</div>
+        <div class="team-info">
+          <div class="team-name">Titilayo Adesanya</div>
+          <div class="team-role">Founder & Head Stylist</div>
+          <div class="team-bio">With 12 years of experience, Titi founded Itan with a dream to build Nigeria's finest hair destination. Her signature braids are legendary.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">👩🏽‍🦰</div>
+        <div class="team-info">
+          <div class="team-name">Blessing Okafor</div>
+          <div class="team-role">Head of Academy</div>
+          <div class="team-bio">An award-winning educator, Blessing has trained over 150 stylists and brings an infectious enthusiasm to every class she leads.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">🧑🏾‍🎨</div>
+        <div class="team-info">
+          <div class="team-name">Emeka Nwosu</div>
+          <div class="team-role">Colour Specialist</div>
+          <div class="team-bio">Emeka studied hair colour science in London and brings a technical mastery that transforms every client's hair into a work of art.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2 class="cta-title">Come Experience<br>the <em>Itan Difference</em></h2>
+    <p class="cta-sub">Book your appointment or join our next academy intake today.</p>
+    <div class="cta-actions">
+      <a class="btn btn-white" onclick="showPage('shop')">Book a Service</a>
+      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" onclick="showPage('academy')">Explore Academy</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Itan Academy</div>
+      <div class="footer-brand-sub">Hair Salon & Academy</div>
+      <p class="footer-body">Where passion meets professionalism. Serving Lagos and training the next generation of hair artists across Africa.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="#" title="Instagram">📷</a>
+        <a class="social-btn" href="#" title="Facebook">👍</a>
+        <a class="social-btn" href="#" title="TikTok">🎵</a>
+        <a class="social-btn" href="#" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Home</a>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('about')">About Us</a>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('academy')">Academy</a>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('shop')">Shop</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Braiding</a>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Colour</a>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Wig Installation</a>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Loc Services</a>
+      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Bridal</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <span class="footer-link" style="cursor:default">📍 Lagos, Nigeria</span>
+      <a class="footer-link" href="https://wa.me/2340000000000" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+      <a class="footer-link" href="mailto:hello@itanacademy.ng">📧 hello@itanacademy.ng</a>
+      <span class="footer-link" style="cursor:default">🕐 Mon–Sat, 9am–7pm</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Itan Academy. All rights reserved.</span>
+    <span>Built with ❤️ for hair artists everywhere</span>
+  </div>
+</footer>
+
+<script>
+// ─── PAGE NAVIGATION ─────────────────────────
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.querySelectorAll('.nav-link[data-page="' + pageId + '"]').forEach(l => l.classList.add('active'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Reveal cards already in viewport on the newly shown page
+  setTimeout(() => {
+    const sel = ['service-card','testimonial-card','course-card','product-card','team-card','value-card','why-card']
+      .map(c => '#page-' + pageId + ' .' + c).join(', ');
+    document.querySelectorAll(sel).forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+    });
+  }, 50);
+}
+
+// ─── NAV SCROLL EFFECT ────────────────────────
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('main-nav');
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ─── MOBILE NAV ───────────────────────────────
+function toggleMobileNav() {
+  const isOpen = document.getElementById('mobile-nav').classList.toggle('open');
+  document.getElementById('hamburger').setAttribute('aria-expanded', isOpen);
+}
+
+// ─── SHOP FILTER ──────────────────────────────
+function filterProducts(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+// ─── CUSTOM CURSOR ────────────────────────────
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.transform = `translate(${mouseX - 5}px, ${mouseY - 5}px)`;
+});
+
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  cursorRing.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .product-card, .service-card, .course-card, .team-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursorRing.classList.add('hovered'));
+  el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovered'));
+});
+
+// ─── ADD TO CART FEEDBACK ─────────────────────
+document.querySelectorAll('.btn-add-cart').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const orig = this.textContent;
+    this.textContent = '✓ Added!';
+    this.style.background = '#16a34a';
+    setTimeout(() => {
+      this.textContent = orig;
+      this.style.background = '';
+    }, 1800);
+  });
+});
+
+// ─── SCROLL REVEAL ────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .testimonial-card, .course-card, .product-card, .team-card, .value-card, .why-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
