@@ -1232,7 +1232,7 @@ footer {
     <h2 class="cta-title">Can't Find What<br>You're Looking For?</h2>
     <p class="cta-sub">Contact us directly and our team will source exactly what you need.</p>
     <div class="cta-actions">
-      <a class="btn btn-white" href="https://wa.me/2340000000000" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+      <a class="btn btn-white" href="https://wa.me/2348145264635" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
     </div>
   </div>
 
@@ -1400,7 +1400,7 @@ footer {
     <p class="cta-sub">Limited spaces available. Apply today to secure your spot.</p>
     <div class="cta-actions">
       <a class="btn btn-white">Apply Now</a>
-      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" href="https://wa.me/2340000000000" target="_blank" rel="noopener noreferrer">Chat with Us</a>
+      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" href="https://wa.me/2348145264635" target="_blank" rel="noopener noreferrer">Chat with Us</a>
     </div>
   </div>
 
@@ -1544,7 +1544,7 @@ footer {
     <div>
       <div class="footer-col-title">Contact</div>
       <span class="footer-link" style="cursor:default">📍 9, Daramola Street, Bakery Bus Stop, Egbeda, Alimosho, Lagos State, Nigeria</span>
-      <a class="footer-link" href="https://wa.me/2340000000000" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+      <a class="footer-link" href="https://wa.me/2348145264635" target="_blank" rel="noopener noreferrer">💬 +234 814 526 4635</a>
       <a class="footer-link" href="mailto:itanbeautyworld@gmail.com">📧 itanbeautyworld@gmail.com</a>
       <span class="footer-link" style="cursor:default">🕐 Mon–Sat, 9am–7pm</span>
     </div>
@@ -1650,5 +1650,37 @@ document.querySelectorAll('.service-card, .testimonial-card, .course-card, .prod
   observer.observe(el);
 });
 </script>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/2348145264635" target="_blank" rel="noopener noreferrer"
+  id="wa-float"
+  title="Chat with us on WhatsApp"
+  style="
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 20px 14px 16px;
+    border-radius: 100px;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.45);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+  "
+  onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 14px 40px rgba(37,211,102,0.55)'"
+  onmouseleave="this.style.transform='';this.style.boxShadow='0 8px 30px rgba(37,211,102,0.45)'">
+  <img src="media/whatsapp logo.png" alt="WhatsApp" style="width:26px;height:26px;object-fit:contain;flex-shrink:0" onerror="this.outerHTML='<span style=&quot;font-size:22px&quot;>💬</span>'">
+  <span>+234 814 526 4635</span>
+</a>
+
 </body>
 </html>
