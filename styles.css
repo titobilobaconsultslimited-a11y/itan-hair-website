@@ -93,23 +93,26 @@ body {
   transition: var(--transition);
 }
 .nav.scrolled .nav-logo img { height: 56px; }
-.nav-logo-text {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--black);
-  line-height: 1;
+.nav-brand {
+  display: flex; flex-direction: column; line-height: 1;
 }
-.nav-logo-sub {
+.nav-brand-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--black);
+  white-space: nowrap;
+}
+.nav-brand-sub {
   font-family: var(--font-body);
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--pink);
-  display: block;
-  margin-top: 2px;
+  margin-top: 3px;
 }
+.nav.scrolled .nav-brand-name { font-size: 17px; }
 .nav-links {
   display: flex; align-items: center; gap: 8px;
 }
