@@ -44,6 +44,26 @@
   </div>
 </nav>
 
+<!-- MARQUEE BAR (global — shows on every page) -->
+<div class="marquee-wrap" id="marquee-bar">
+  <div class="marquee-track">
+    <span class="marquee-item">Hair Styling</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Braiding & Weaving</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Academy Training</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Colour & Treatment</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Locs & Natural Hair</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Wig Making</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Hair Extensions</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Hair Styling</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Braiding & Weaving</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Academy Training</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Colour & Treatment</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Locs & Natural Hair</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Wig Making</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Hair Extensions</span><span class="marquee-dot"></span>
+  </div>
+</div>
+
 <!-- MOBILE NAV -->
 <div class="nav-mobile" id="mobile-nav">
   <button style="position:absolute;top:24px;right:24px;font-size:28px;border:none;background:none;cursor:pointer" aria-label="Close navigation menu" onclick="toggleMobileNav()">✕</button>
@@ -92,25 +112,7 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item">Hair Styling</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Braiding & Weaving</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Academy Training</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Colour & Treatment</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Locs & Natural Hair</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Wig Making</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Hair Extensions</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Hair Styling</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Braiding & Weaving</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Academy Training</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Colour & Treatment</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Locs & Natural Hair</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Wig Making</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Hair Extensions</span><span class="marquee-dot"></span>
-    </div>
-  </div>
+<!-- ════════════════════════════════════════════ (moved to global header) -->
 
   <!-- SERVICES -->
   <section>
@@ -664,7 +666,10 @@ function showPage(pageId) {
 // ─── NAV SCROLL EFFECT ────────────────────────
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('main-nav');
-  nav.classList.toggle('scrolled', window.scrollY > 40);
+  const marquee = document.getElementById('marquee-bar');
+  const scrolled = window.scrollY > 40;
+  nav.classList.toggle('scrolled', scrolled);
+  if (marquee) marquee.style.top = scrolled ? '64px' : '80px';
 });
 
 // ─── MOBILE NAV ───────────────────────────────
