@@ -853,21 +853,20 @@ footer {
 }
 .footer-socials { display: flex; gap: 12px; }
 .social-btn {
-  width: 40px; height: 40px;
-  background: rgba(255,255,255,0.06);
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.08);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 16px; cursor: pointer; transition: var(--transition);
+  cursor: pointer; transition: var(--transition);
   text-decoration: none;
   overflow: hidden;
 }
 .social-btn img {
-  width: 22px; height: 22px;
+  width: 26px; height: 26px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
   transition: var(--transition);
 }
-.social-btn:hover { background: var(--pink); }
-.social-btn:hover img { filter: brightness(0) invert(1); }
+.social-btn:hover { background: rgba(255,255,255,0.18); transform: translateY(-3px); }
+.social-btn:hover img { transform: scale(1.1); }
 .footer-col-title {
   font-size: 10px; font-weight: 700; letter-spacing: 3px;
   text-transform: uppercase; color: var(--white); margin-bottom: 20px;
