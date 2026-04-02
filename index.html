@@ -689,7 +689,7 @@ let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
 document.addEventListener('mousemove', e => {
   mouseX = e.clientX; mouseY = e.clientY;
-  cursor.style.transform = `translate(${mouseX - 5}px, ${mouseY - 5}px)`;
+  cursor.style.transform = `translate(${mouseX - 1.5}px, ${mouseY - 24}px) rotate(40deg)`;
 });
 
 function animateRing() {
