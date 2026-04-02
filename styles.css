@@ -853,7 +853,7 @@ footer {
 }
 .footer-socials { display: flex; gap: 12px; }
 .social-btn {
-  width: 44px; height: 44px;
+  width: 36px; height: 36px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; transition: var(--transition);
@@ -867,6 +867,10 @@ footer {
   border-radius: 50%;
   mix-blend-mode: multiply;
   transition: var(--transition);
+}
+.social-btn[title="TikTok"] img {
+  mix-blend-mode: normal;
+  filter: invert(1);
 }
 .social-btn:hover { transform: translateY(-3px) scale(1.1); }
 .social-btn[title="Instagram"] { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
