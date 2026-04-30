@@ -836,6 +836,96 @@ section { padding: 100px 48px; }
 .team-role { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 12px; }
 .team-bio { font-size: 13px; font-weight: 300; color: var(--gray); line-height: 1.7; }
 
+/* ── ITAN EMPOWERMENT INITIATIVE — COMING SOON ── */
+.empowerment-coming-soon {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+  background: var(--pink-pale);
+}
+.empowerment-bg-blob {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244,114,182,0.18) 0%, transparent 70%);
+  top: -120px; right: -120px;
+  pointer-events: none;
+}
+.empowerment-bg-blob2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%);
+  bottom: -80px; left: -80px;
+  pointer-events: none;
+}
+.empowerment-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 680px;
+}
+.empowerment-badge {
+  display: inline-block;
+  background: var(--pink-light);
+  color: var(--pink-deep);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 8px 22px;
+  border-radius: 100px;
+  border: 1px solid rgba(236,72,153,0.25);
+  margin-bottom: 32px;
+}
+.empowerment-title {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 14vw, 130px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--black);
+  letter-spacing: -2px;
+  margin-bottom: 28px;
+}
+.empowerment-title em {
+  font-style: italic;
+  color: var(--pink-deep);
+}
+.empowerment-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto 32px;
+}
+.empowerment-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, var(--pink), var(--pink-deep));
+  border-radius: 2px;
+  margin: 0 auto 28px;
+}
+.empowerment-notify {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 24px;
+  letter-spacing: 0.3px;
+}
+.empowerment-socials {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
 /* ── FOOTER ── */
 footer {
   background: var(--black);
