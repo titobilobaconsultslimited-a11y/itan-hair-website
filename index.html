@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,7 +23,7 @@
 
 <!-- NAVIGATION -->
 <nav class="nav" id="main-nav">
-  <a class="nav-logo" href="javascript:void(0)" onclick="showPage('home')">
+  <a class="nav-logo" href="#home">
     <img src="media/LOGO.jpeg" alt="Itan Beauty World" onerror="this.style.display='none'">
     <div class="nav-brand">
       <span class="nav-brand-name">Itan Beauty World</span>
@@ -36,12 +36,15 @@
   </button>
 
   <div class="nav-links">
-    <a class="nav-link active" href="javascript:void(0)" data-page="home" onclick="showPage('home')">Home</a>
-    <a class="nav-link" href="javascript:void(0)" data-page="about" onclick="showPage('about')">About</a>
-    <a class="nav-link" href="javascript:void(0)" data-page="academy" onclick="showPage('academy')">Academy</a>
-    <a class="nav-link" href="javascript:void(0)" data-page="shop" onclick="showPage('shop')">Shop</a>
-    <a class="nav-link" href="javascript:void(0)" data-page="empowerment" onclick="showPage('empowerment')">Empowerment</a>
-    <a class="nav-link nav-cta btn" href="javascript:void(0)" data-page="academy" onclick="showPage('academy')">Enrol Now</a>
+    <a class="nav-link active" href="#home" data-page="home">Home</a>
+    <a class="nav-link" href="#about" data-page="about">About</a>
+    <a class="nav-link" href="#academy" data-page="academy">Academy</a>
+    <a class="nav-link" href="#shop" data-page="shop">Shop</a>
+    <a class="nav-link" href="#empowerment" data-page="empowerment">Empowerment</a>
+    <div class="nav-cart-trigger" onclick="toggleCart()" title="View Cart">
+      🛒 <span class="nav-cart-badge" id="cart-badge-count">0</span>
+    </div>
+    <a class="nav-link nav-cta btn" href="#academy" data-page="academy">Enrol Now</a>
   </div>
 </nav>
 
@@ -68,12 +71,13 @@
 <!-- MOBILE NAV -->
 <div class="nav-mobile" id="mobile-nav">
   <button style="position:absolute;top:24px;right:24px;font-size:28px;border:none;background:none;cursor:pointer" aria-label="Close navigation menu" onclick="toggleMobileNav()">✕</button>
-  <a class="nav-link" href="javascript:void(0)" data-page="home" onclick="showPage('home');toggleMobileNav()">Home</a>
-  <a class="nav-link" href="javascript:void(0)" data-page="about" onclick="showPage('about');toggleMobileNav()">About</a>
-  <a class="nav-link" href="javascript:void(0)" data-page="academy" onclick="showPage('academy');toggleMobileNav()">Academy</a>
-  <a class="nav-link" href="javascript:void(0)" data-page="shop" onclick="showPage('shop');toggleMobileNav()">Shop</a>
-  <a class="nav-link" href="javascript:void(0)" data-page="empowerment" onclick="showPage('empowerment');toggleMobileNav()">Empowerment</a>
-  <a class="nav-link nav-cta btn" href="javascript:void(0)" data-page="academy" onclick="showPage('academy');toggleMobileNav()">Enrol Now</a>
+  <a class="nav-link" href="#home" data-page="home" onclick="toggleMobileNav()">Home</a>
+  <a class="nav-link" href="#about" data-page="about" onclick="toggleMobileNav()">About</a>
+  <a class="nav-link" href="#academy" data-page="academy" onclick="toggleMobileNav()">Academy</a>
+  <a class="nav-link" href="#shop" data-page="shop" onclick="toggleMobileNav()">Shop</a>
+  <a class="nav-link" href="#empowerment" data-page="empowerment" onclick="toggleMobileNav()">Empowerment</a>
+  <a class="nav-link" href="javascript:void(0)" onclick="toggleCart();toggleMobileNav()">Cart (🛒 <span id="cart-mobile-count">0</span>)</a>
+  <a class="nav-link nav-cta btn" href="#academy" data-page="academy" onclick="toggleMobileNav()">Enrol Now</a>
 </div>
 
 <!-- ══════════════════════════════════════════ -->
@@ -90,8 +94,8 @@
       <h1 class="hero-title anim-fade-up-2">Where Hair<br>Becomes <em>Art</em></h1>
       <p class="hero-sub anim-fade-up-3">Premium hair salon services and professional academy training. We transform your hair and your career — one strand at a time.</p>
       <div class="hero-actions anim-fade-up-4">
-        <a class="btn btn-primary" onclick="showPage('shop')">Book a Service</a>
-        <a class="btn btn-outline" onclick="showPage('academy')">Explore Academy</a>
+        <a class="btn btn-primary" href="#shop">Book a Service</a>
+        <a class="btn btn-outline" href="#academy">Explore Academy</a>
       </div>
       <div class="hero-stats anim-fade-up-4">
         <div class="stat-item">
@@ -109,7 +113,7 @@
       </div>
     </div>
     <div class="hero-image-wrap">
-      <div class="hero-img-placeholder">💇‍♀️</div>
+      <img src="media/WhatsApp Image 2026-04-30 at 9.22.26 AM (1).jpeg" alt="Itan Academy Braiding & Wig Styling" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
     </div>
   </section>
 
@@ -166,9 +170,11 @@
       <div class="about-strip-eyebrow">Our Story</div>
       <h2 class="about-strip-title">More Than<br>a Salon — a <em>Movement</em></h2>
       <p class="about-strip-body">Itan Academy was born from a passion for hair artistry and a vision to empower the next generation of stylists across Africa. We combine world-class training with premium salon services under one roof.</p>
-      <a class="btn btn-pink" onclick="showPage('about')">Discover Our Story</a>
+      <a class="btn btn-pink" href="#about">Discover Our Story</a>
     </div>
-    <div class="about-strip-image">💇‍♀️</div>
+    <div class="about-strip-image" style="padding:0;overflow:hidden">
+      <img src="media/WhatsApp Image 2026-04-30 at 9.22.24 AM.jpeg" alt="Itan Salon Wig Display" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+    </div>
   </div>
 
   <!-- TESTIMONIALS -->
@@ -208,8 +214,8 @@
     <h2 class="cta-title">Ready to Transform<br>Your Hair?</h2>
     <p class="cta-sub">Book a consultation today or explore our academy programmes.</p>
     <div class="cta-actions">
-      <a class="btn btn-white" onclick="showPage('shop')">Book a Service</a>
-      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" onclick="showPage('academy')">View Courses</a>
+      <a class="btn btn-white" href="#shop">Book a Service</a>
+      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" href="#academy">View Courses</a>
     </div>
   </div>
 
@@ -235,83 +241,83 @@
 
   <div class="shop-grid" id="shop-grid">
     <div class="product-card" data-cat="treatment">
-      <div class="product-image"><span class="product-badge">Best Seller</span>🧴</div>
+      <div class="product-image"><span class="product-badge">Best Seller</span><img src="media/WhatsApp Image 2026-04-30 at 9.22.23 AM (1).jpeg" alt="Deep Moisture Masque" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="product-info">
         <div class="product-cat">Treatment</div>
         <div class="product-name">Deep Moisture Masque</div>
         <div class="product-rating">★★★★★ (48)</div>
         <div class="product-price"><span class="price-main">₦4,500</span><span class="price-old">₦6,000</span></div>
-        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-add-cart" onclick="addToCart('Deep Moisture Masque', 4500)">Add to Cart</button>
       </div>
     </div>
     <div class="product-card" data-cat="styling">
-      <div class="product-image"><span class="product-badge black">New</span>💆</div>
+      <div class="product-image"><span class="product-badge black">New</span><img src="media/WhatsApp Image 2026-04-30 at 9.22.23 AM.jpeg" alt="Curl Defining Cream" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="product-info">
         <div class="product-cat">Styling</div>
         <div class="product-name">Curl Defining Cream</div>
         <div class="product-rating">★★★★☆ (32)</div>
         <div class="product-price"><span class="price-main">₦3,200</span></div>
-        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-add-cart" onclick="addToCart('Curl Defining Cream', 3200)">Add to Cart</button>
       </div>
     </div>
     <div class="product-card" data-cat="tools">
-      <div class="product-image">💎</div>
+      <div class="product-image"><img src="media/WhatsApp Image 2026-04-30 at 9.22.23 AM.jpeg" alt="Pro Itanium Flat Iron" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="product-info">
         <div class="product-cat">Tools</div>
         <div class="product-name">Pro Itanium Flat Iron</div>
         <div class="product-rating">★★★★★ (67)</div>
         <div class="product-price"><span class="price-main">₦28,000</span><span class="price-old">₦35,000</span></div>
-        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-add-cart" onclick="addToCart('Pro Itanium Flat Iron', 28000)">Add to Cart</button>
       </div>
     </div>
     <div class="product-card" data-cat="natural">
-      <div class="product-image"><span class="product-badge">Popular</span>🌿</div>
+      <div class="product-image"><span class="product-badge">Popular</span><img src="media/WhatsApp Image 2026-04-30 at 9.22.24 AM (1).jpeg" alt="Loc Refresh Spray" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="product-info">
         <div class="product-cat">Natural Hair</div>
         <div class="product-name">Loc Refresh Spray</div>
         <div class="product-rating">★★★★★ (91)</div>
         <div class="product-price"><span class="price-main">₦2,800</span></div>
-        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-add-cart" onclick="addToCart('Loc Refresh Spray', 2800)">Add to Cart</button>
       </div>
     </div>
     <div class="product-card" data-cat="treatment">
-      <div class="product-image">✨</div>
+      <div class="product-image"><img src="media/WhatsApp Image 2026-04-30 at 9.22.24 AM.jpeg" alt="Protein Bond Repair" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="product-info">
         <div class="product-cat">Treatment</div>
         <div class="product-name">Protein Bond Repair</div>
         <div class="product-rating">★★★★☆ (24)</div>
         <div class="product-price"><span class="price-main">₦5,500</span></div>
-        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-add-cart" onclick="addToCart('Protein Bond Repair', 5500)">Add to Cart</button>
       </div>
     </div>
     <div class="product-card" data-cat="styling">
-      <div class="product-image"><span class="product-badge">Sale</span>💅</div>
+      <div class="product-image"><span class="product-badge">Sale</span><img src="media/WhatsApp Image 2026-04-30 at 9.22.26 AM (1).jpeg" alt="Edge Control Gel" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="product-info">
         <div class="product-cat">Styling</div>
         <div class="product-name">Edge Control Gel</div>
         <div class="product-rating">★★★★★ (115)</div>
         <div class="product-price"><span class="price-main">₦1,800</span><span class="price-old">₦2,500</span></div>
-        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-add-cart" onclick="addToCart('Edge Control Gel', 1800)">Add to Cart</button>
       </div>
     </div>
     <div class="product-card" data-cat="tools">
-      <div class="product-image">🪮</div>
+      <div class="product-image"><img src="media/WhatsApp Image 2026-04-30 at 9.22.26 AM.jpeg" alt="Wide-Tooth Detangle Set" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="product-info">
         <div class="product-cat">Tools</div>
         <div class="product-name">Wide-Tooth Detangle Set</div>
         <div class="product-rating">★★★★☆ (43)</div>
         <div class="product-price"><span class="price-main">₦3,500</span></div>
-        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-add-cart" onclick="addToCart('Wide-Tooth Detangle Set', 3500)">Add to Cart</button>
       </div>
     </div>
     <div class="product-card" data-cat="natural">
-      <div class="product-image"><span class="product-badge black">New</span>🌺</div>
+      <div class="product-image"><span class="product-badge black">New</span><img src="media/WhatsApp Image 2026-04-30 at 9.22.26 AM(1).jpeg" alt="Shea Butter Leave-In" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="product-info">
         <div class="product-cat">Natural Hair</div>
         <div class="product-name">Shea Butter Leave-In</div>
         <div class="product-rating">★★★★★ (78)</div>
         <div class="product-price"><span class="price-main">₦4,000</span></div>
-        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-add-cart" onclick="addToCart('Shea Butter Leave-In', 4000)">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -337,8 +343,14 @@
       <h1 class="academy-title">Train Like<br>a <em>Professional</em></h1>
       <p class="academy-sub">Join Africa's premier hair academy. Our hands-on courses are designed to turn your passion into a thriving career.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a class="btn btn-pink">Apply Now</a>
+        <a class="btn btn-pink" onclick="openEnrolModal()">Apply Now</a>
         <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:white">Download Brochure</a>
+      </div>
+    </div>
+    <div class="academy-hero-image-wrap">
+      <div class="academy-hero-card">
+        <img src="media/ACADEMY.jpeg" alt="Itan Academy training session" class="academy-hero-img">
+        <div class="academy-hero-card-tag">Professional Training</div>
       </div>
     </div>
   </div>
@@ -362,7 +374,7 @@
           </div>
           <div class="course-footer">
             <div class="course-price">₦45,000 <span>/ course</span></div>
-            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px" onclick="openEnrolModal('Braiding Fundamentals')">Enrol</a>
           </div>
         </div>
       </div>
@@ -379,7 +391,7 @@
           </div>
           <div class="course-footer">
             <div class="course-price">₦75,000 <span>/ course</span></div>
-            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px" onclick="openEnrolModal('Wig Making Masterclass')">Enrol</a>
           </div>
         </div>
       </div>
@@ -396,7 +408,7 @@
           </div>
           <div class="course-footer">
             <div class="course-price">₦90,000 <span>/ course</span></div>
-            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px" onclick="openEnrolModal('Hair Colour & Chemistry')">Enrol</a>
           </div>
         </div>
       </div>
@@ -413,7 +425,7 @@
           </div>
           <div class="course-footer">
             <div class="course-price">₦35,000 <span>/ course</span></div>
-            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px" onclick="openEnrolModal('Loc Artistry Course')">Enrol</a>
           </div>
         </div>
       </div>
@@ -430,7 +442,7 @@
           </div>
           <div class="course-footer">
             <div class="course-price">₦30,000 <span>/ course</span></div>
-            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px" onclick="openEnrolModal('Salon Business Bootcamp')">Enrol</a>
           </div>
         </div>
       </div>
@@ -447,7 +459,7 @@
           </div>
           <div class="course-footer">
             <div class="course-price">₦200,000 <span>/ course</span></div>
-            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px">Enrol</a>
+            <a class="btn btn-pink" style="padding:10px 20px;font-size:10px" onclick="openEnrolModal('Complete Pro Stylist Programme')">Enrol</a>
           </div>
         </div>
       </div>
@@ -487,7 +499,7 @@
     <h2 class="cta-title">Your Career<br>Starts <em>Here</em></h2>
     <p class="cta-sub">Limited spaces available. Apply today to secure your spot.</p>
     <div class="cta-actions">
-      <a class="btn btn-white">Apply Now</a>
+      <a class="btn btn-white" onclick="openEnrolModal()">Apply Now</a>
       <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" href="https://wa.me/2348145264635" target="_blank" rel="noopener noreferrer">Chat with Us</a>
     </div>
   </div>
@@ -526,29 +538,50 @@
       <div class="value-card">
         <div class="value-num">01</div>
         <div>
-          <div class="value-title">Excellence Always</div>
-          <div class="value-desc">We hold every strand to the highest standard. Whether it's a simple trim or a complex colour, excellence is non-negotiable at Itan.</div>
+          <div class="value-title">Integrity</div>
+          <div class="value-desc">We do what we say, and say what we mean. Honest dealings with every client, student, and partner are the foundation of everything we do.</div>
         </div>
       </div>
       <div class="value-card">
         <div class="value-num">02</div>
         <div>
-          <div class="value-title">Celebrating Heritage</div>
-          <div class="value-desc">African hair is magnificent. We honour every texture, pattern and style — from natural locs to bold weaves — with equal expertise and pride.</div>
+          <div class="value-title">Empathy</div>
+          <div class="value-desc">We listen first. Understanding each person's unique needs — whether in the salon chair or the classroom — shapes every experience we create.</div>
         </div>
       </div>
       <div class="value-card">
         <div class="value-num">03</div>
         <div>
-          <div class="value-title">Empowering Careers</div>
-          <div class="value-desc">We believe every person deserves the tools to build a thriving career. Our academy programmes are designed to transform talent into livelihoods.</div>
+          <div class="value-title">Creativity</div>
+          <div class="value-desc">Hair is our canvas. We push boundaries, explore new techniques, and bring imaginative solutions to every style and every student we train.</div>
         </div>
       </div>
       <div class="value-card">
         <div class="value-num">04</div>
         <div>
-          <div class="value-title">Community First</div>
-          <div class="value-desc">Itan is more than a business — it's a community. We invest in our clients, our students and the neighbourhoods we serve.</div>
+          <div class="value-title">Capacity Building</div>
+          <div class="value-desc">We invest in people. Through our academy programmes and mentorship, we equip individuals with the skills to build lasting, sustainable careers.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">05</div>
+        <div>
+          <div class="value-title">Spirituality</div>
+          <div class="value-desc">Grounded in purpose and guided by faith, we approach our work with gratitude, intentionality, and a deeper sense of meaning beyond the business.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">06</div>
+        <div>
+          <div class="value-title">Excellence</div>
+          <div class="value-desc">We hold every strand to the highest standard. Whether a simple trim or a complex colour, excellence is non-negotiable at Itan.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">07</div>
+        <div>
+          <div class="value-title">Empowerment</div>
+          <div class="value-desc">We believe transformation starts from within. We empower women, youth, and communities with the tools, confidence, and opportunity to thrive.</div>
         </div>
       </div>
     </div>
@@ -570,7 +603,9 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo">👩🏽‍🦰</div>
+        <div class="team-photo" style="padding:0;overflow:hidden">
+          <img src="media/WhatsApp Image 2026-04-30 at 9.22.24 AM (1).jpeg" alt="Blessing Okafor" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        </div>
         <div class="team-info">
           <div class="team-name">Blessing Okafor</div>
           <div class="team-role">Head of Academy</div>
@@ -578,7 +613,9 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo">🧑🏾‍🎨</div>
+        <div class="team-photo" style="padding:0;overflow:hidden">
+          <img src="media/WhatsApp Image 2026-04-30 at 9.22.26 AM.jpeg" alt="Emeka Nwosu" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        </div>
         <div class="team-info">
           <div class="team-name">Emeka Nwosu</div>
           <div class="team-role">Colour Specialist</div>
@@ -593,8 +630,8 @@
     <h2 class="cta-title">Come Experience<br>the <em>Itan Difference</em></h2>
     <p class="cta-sub">Book your appointment or join our next academy intake today.</p>
     <div class="cta-actions">
-      <a class="btn btn-white" onclick="showPage('shop')">Book a Service</a>
-      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" onclick="showPage('academy')">Explore Academy</a>
+      <a class="btn btn-white" href="#shop">Book a Service</a>
+      <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white" href="#academy">Explore Academy</a>
     </div>
   </div>
 
@@ -617,7 +654,7 @@
         <a class="social-btn" href="#" title="Instagram"><img src="media/Instagram logo.jfif" alt="Instagram"></a>
         <a class="social-btn" href="https://wa.me/2348145264635" target="_blank" rel="noopener noreferrer" title="WhatsApp"><img src="media/whatsapp logo.png" alt="WhatsApp" onerror="this.outerHTML='<span style=&quot;font-size:22px&quot;>💬</span>'"></a>
       </div>
-      <button class="btn btn-outline" onclick="showPage('home')" style="margin-top:2rem">Back to Home</button>
+      <a class="btn btn-outline" href="#home" style="margin-top:2rem;text-decoration:none;display:inline-block">Back to Home</a>
     </div>
   </section>
 </div>
@@ -638,19 +675,19 @@
     </div>
     <div>
       <div class="footer-col-title">Explore</div>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Home</a>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('about')">About Us</a>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('academy')">Academy</a>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('shop')">Shop</a>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('empowerment')">Empowerment Initiative</a>
+      <a class="footer-link" href="#home">Home</a>
+      <a class="footer-link" href="#about">About Us</a>
+      <a class="footer-link" href="#academy">Academy</a>
+      <a class="footer-link" href="#shop">Shop</a>
+      <a class="footer-link" href="#empowerment">Empowerment Initiative</a>
     </div>
     <div>
       <div class="footer-col-title">Services</div>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Braiding</a>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Colour</a>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Wig Installation</a>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Loc Services</a>
-      <a class="footer-link" href="javascript:void(0)" onclick="showPage('home')">Bridal</a>
+      <a class="footer-link" href="#shop">Braiding</a>
+      <a class="footer-link" href="#shop">Colour</a>
+      <a class="footer-link" href="#shop">Wig Installation</a>
+      <a class="footer-link" href="#shop">Loc Services</a>
+      <a class="footer-link" href="#shop">Bridal</a>
     </div>
     <div>
       <div class="footer-col-title">Contact</div>
@@ -666,26 +703,100 @@
   </div>
 </footer>
 
+<!-- CART DRAWER -->
+<div class="cart-drawer-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h3 class="cart-title">Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-container">
+    <!-- Dynamic Items -->
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total:</span>
+      <span id="cart-total-price">₦0</span>
+    </div>
+    <button class="cart-checkout-btn" onclick="checkoutWhatsApp()">
+      Checkout via WhatsApp 💬
+    </button>
+  </div>
+</div>
+
+<!-- ENROLMENT MODAL -->
+<div class="modal-overlay" id="enrol-modal" onclick="closeEnrolModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeEnrolModal(null)">✕</button>
+    <h3 class="modal-title">Enrol in Itan Academy</h3>
+    <p class="modal-subtitle">Start your professional hair styling career. Fill out this form and submit to complete your registration via WhatsApp.</p>
+    <form id="enrol-form" onsubmit="submitEnrolForm(event)">
+      <div class="form-group">
+        <label class="form-label" for="student-name">Full Name</label>
+        <input class="form-input" type="text" id="student-name" required placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="student-phone">Phone Number</label>
+        <input class="form-input" type="tel" id="student-phone" required placeholder="e.g. +234 800 000 0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="student-course">Course Selected</label>
+        <select class="form-select" id="student-course" required>
+          <option value="" disabled selected>Select a programme</option>
+          <option value="Braiding Fundamentals">Braiding Fundamentals (₦45,000 / 4 weeks)</option>
+          <option value="Wig Making Masterclass">Wig Making Masterclass (₦75,000 / 6 weeks)</option>
+          <option value="Hair Colour & Chemistry">Hair Colour & Chemistry (₦90,000 / 8 weeks)</option>
+          <option value="Loc Artistry Course">Loc Artistry Course (₦35,000 / 3 weeks)</option>
+          <option value="Salon Business Bootcamp">Salon Business Bootcamp (₦30,000 / 2 weeks)</option>
+          <option value="Complete Pro Stylist Programme">Complete Pro Stylist Programme (₦200,000 / 16 weeks)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="student-date">Preferred Start Date</label>
+        <input class="form-input" type="date" id="student-date" required>
+      </div>
+      <button class="form-submit-btn" type="submit">Submit Registration</button>
+    </form>
+  </div>
+</div>
+
 <script>
-// ─── PAGE NAVIGATION ─────────────────────────
-function showPage(pageId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + pageId).classList.add('active');
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  document.querySelectorAll('.nav-link[data-page="' + pageId + '"]').forEach(l => l.classList.add('active'));
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Reveal cards already in viewport on the newly shown page
-  setTimeout(() => {
-    const sel = ['service-card','testimonial-card','course-card','product-card','team-card','value-card','why-card']
-      .map(c => '#page-' + pageId + ' .' + c).join(', ');
-    document.querySelectorAll(sel).forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }
-    });
-  }, 50);
+// ─── HASH ROUTING ────────────────────────────
+function handleRouting() {
+  const hash = window.location.hash.replace('#', '') || 'home';
+  const targetPage = document.getElementById('page-' + hash);
+  if (targetPage) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    targetPage.classList.add('active');
+    
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('.nav-link[data-page="' + hash + '"]').forEach(l => l.classList.add('active'));
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    const pageTitles = {
+      'home': 'Itan Academy — Hair Salon & Academy',
+      'about': 'Itan Academy — About Us',
+      'academy': 'Itan Academy — Professional Training Programs',
+      'shop': 'Itan Academy — Shop Products & Services',
+      'empowerment': 'Itan Academy — Empowerment Initiative'
+    };
+    document.title = pageTitles[hash] || 'Itan Academy — Hair Salon & Academy';
+    
+    setTimeout(() => {
+      const sel = ['service-card','testimonial-card','course-card','product-card','team-card','value-card','why-card']
+        .map(c => '#page-' + hash + ' .' + c).join(', ');
+      document.querySelectorAll(sel).forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }
+      });
+    }, 50);
+  }
 }
+window.addEventListener('hashchange', handleRouting);
+window.addEventListener('DOMContentLoaded', handleRouting);
 
 // ─── NAV SCROLL EFFECT ────────────────────────
 window.addEventListener('scroll', () => {
@@ -711,30 +822,190 @@ function filterProducts(btn, cat) {
   });
 }
 
+// ─── SHOPPING CART ───────────────────────────
+let cart = JSON.parse(localStorage.getItem('itan_cart')) || [];
+
+function toggleCart() {
+  const overlay = document.getElementById('cart-overlay');
+  const drawer = document.getElementById('cart-drawer');
+  overlay.classList.toggle('open');
+  drawer.classList.toggle('open');
+}
+
+function addToCart(name, price) {
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ name, price, qty: 1 });
+  }
+  localStorage.setItem('itan_cart', JSON.stringify(cart));
+  updateCart();
+  
+  // Show drawer on item addition
+  setTimeout(() => {
+    const overlay = document.getElementById('cart-overlay');
+    const drawer = document.getElementById('cart-drawer');
+    if (!drawer.classList.contains('open')) {
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+    }
+  }, 300);
+}
+
+function changeQty(name, amount) {
+  const item = cart.find(i => i.name === name);
+  if (item) {
+    item.qty += amount;
+    if (item.qty <= 0) {
+      cart = cart.filter(i => i.name !== name);
+    }
+    localStorage.setItem('itan_cart', JSON.stringify(cart));
+    updateCart();
+  }
+}
+
+function removeFromCart(name) {
+  cart = cart.filter(i => i.name !== name);
+  localStorage.setItem('itan_cart', JSON.stringify(cart));
+  updateCart();
+}
+
+function updateCart() {
+  const container = document.getElementById('cart-items-container');
+  const badge = document.getElementById('cart-badge-count');
+  const mobileBadge = document.getElementById('cart-mobile-count');
+  const totalLabel = document.getElementById('cart-total-price');
+  
+  container.innerHTML = '';
+  let total = 0;
+  let totalCount = 0;
+  
+  if (cart.length === 0) {
+    container.innerHTML = '<div class="cart-empty-text">Your cart is empty.</div>';
+  } else {
+    cart.forEach(item => {
+      total += item.price * item.qty;
+      totalCount += item.qty;
+      
+      const itemEl = document.createElement('div');
+      itemEl.className = 'cart-item';
+      
+      // Determine placeholder emoji based on product type
+      let emoji = '🧴';
+      if (item.name.includes('Cream')) emoji = '💆';
+      else if (item.name.includes('Iron')) emoji = '💎';
+      else if (item.name.includes('Spray')) emoji = '🌿';
+      else if (item.name.includes('Gel')) emoji = '💅';
+      else if (item.name.includes('Detangle')) emoji = '🪮';
+      else if (item.name.includes('Shea')) emoji = '🌺';
+      
+      itemEl.innerHTML = `
+        <div class="cart-item-image">${emoji}</div>
+        <div class="cart-item-details">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">₦${(item.price).toLocaleString()}</div>
+          <div class="cart-item-qty">
+            <button class="qty-btn" onclick="changeQty('${item.name}', -1)">-</button>
+            <span>${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty('${item.name}', 1)">+</button>
+            <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">Remove</button>
+          </div>
+        </div>
+      `;
+      container.appendChild(itemEl);
+    });
+  }
+  
+  badge.textContent = totalCount;
+  if (mobileBadge) mobileBadge.textContent = totalCount;
+  totalLabel.textContent = `₦${total.toLocaleString()}`;
+}
+
+function checkoutWhatsApp() {
+  if (cart.length === 0) {
+    alert('Your cart is empty.');
+    return;
+  }
+  
+  let msg = `Hello Itan Academy, I would like to purchase the following items:\n\n`;
+  let total = 0;
+  cart.forEach((item, idx) => {
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+    msg += `${idx + 1}. ${item.name} (x${item.qty}) — ₦${subtotal.toLocaleString()}\n`;
+  });
+  msg += `\n*Total Sum: ₦${total.toLocaleString()}*\n\nPlease confirm availability and payment details. Thank you!`;
+  
+  const encodedMsg = encodeURIComponent(msg);
+  const whatsappUrl = `https://wa.me/2348145264635?text=${encodedMsg}`;
+  window.open(whatsappUrl, '_blank');
+}
+
+// ─── ENROLMENT MODAL ───
+function openEnrolModal(courseName = '') {
+  const modal = document.getElementById('enrol-modal');
+  modal.classList.add('open');
+  if (courseName) {
+    const select = document.getElementById('student-course');
+    select.value = courseName;
+  }
+}
+
+function closeEnrolModal(e) {
+  if (!e || e.target === document.getElementById('enrol-modal')) {
+    document.getElementById('enrol-modal').classList.remove('open');
+  }
+}
+
+function submitEnrolForm(e) {
+  e.preventDefault();
+  const name = document.getElementById('student-name').value;
+  const phone = document.getElementById('student-phone').value;
+  const course = document.getElementById('student-course').value;
+  const date = document.getElementById('student-date').value;
+  
+  const msg = `Hello Itan Academy,\n\nI would like to enrol in the *${course}* programme.\n\n*My Details:*\n- Name: ${name}\n- Phone: ${phone}\n- Preferred Start Date: ${date}\n\nPlease let me know the next steps for payment and registration. Thank you!`;
+  
+  const encodedMsg = encodeURIComponent(msg);
+  const whatsappUrl = `https://wa.me/2348145264635?text=${encodedMsg}`;
+  window.open(whatsappUrl, '_blank');
+  
+  closeEnrolModal(null);
+  document.getElementById('enrol-form').reset();
+}
+
 // ─── CUSTOM CURSOR ────────────────────────────
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursor-ring');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursor.style.transform = `translate(${mouseX - 1.5}px, ${mouseY - 24}px) rotate(40deg)`;
-});
+const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+if (!isTouchDevice && cursor && cursorRing) {
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    cursor.style.transform = `translate(${mouseX - 1.5}px, ${mouseY - 24}px) rotate(40deg)`;
+  });
 
-function animateRing() {
-  ringX += (mouseX - ringX) * 0.12;
-  ringY += (mouseY - ringY) * 0.12;
-  cursorRing.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
-  requestAnimationFrame(animateRing);
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    cursorRing.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .product-card, .service-card, .course-card, .team-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursorRing.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovered'));
+  });
+} else {
+  if (cursor) cursor.style.display = 'none';
+  if (cursorRing) cursorRing.style.display = 'none';
 }
-animateRing();
-
-document.querySelectorAll('a, button, .product-card, .service-card, .course-card, .team-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursorRing.classList.add('hovered'));
-  el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovered'));
-});
 
 // ─── ADD TO CART FEEDBACK ─────────────────────
+// Trigger local animation feedback on product card buttons
 document.querySelectorAll('.btn-add-cart').forEach(btn => {
   btn.addEventListener('click', function() {
     const orig = this.textContent;
@@ -763,6 +1034,8 @@ document.querySelectorAll('.service-card, .testimonial-card, .course-card, .prod
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
+
+document.addEventListener('DOMContentLoaded', updateCart);
 </script>
 
 <!-- FLOATING WHATSAPP BUTTON -->
